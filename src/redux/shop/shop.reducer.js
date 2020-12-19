@@ -2,7 +2,8 @@ import ShopActionTypes from './shop.types.js';
 
 const INITIAL_STATE = {
     categories : [],
-    products : []
+    products : [],
+    selectedCategory: null
 }
 
 const ShopReducer = ( state = INITIAL_STATE , action ) => {
@@ -17,6 +18,12 @@ const ShopReducer = ( state = INITIAL_STATE , action ) => {
             return {
                 ...state,
                 products : action.payload
+            }
+
+        case ShopActionTypes.SET_CATEGORY:
+            return {
+                ...state,
+                selectedCategory : action.payload
             }
         
         default:

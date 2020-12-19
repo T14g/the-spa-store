@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import './App.css';
 
 import Header from './components/header/header.component';
+import Categories from './components/categories/categories.component';
+import ProductList from './components/product-list/product-list.component';
 
 import { LoadCategories, LoadProducts} from './redux/shop/shop.actions';
 
@@ -15,6 +17,8 @@ const  App = ({loadCategories, loadProducts}) => {
   return (
     <div className="App">
       <Header />
+      <Categories />
+      <ProductList />
     </div>
   );
 }

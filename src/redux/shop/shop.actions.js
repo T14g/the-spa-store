@@ -9,3 +9,8 @@ export const LoadProducts = products => ({
     type: ShopActionTypes.LOAD_PRODUCTS,
     payload: products
 })
+
+export const SetCategory = categoryID => ({
+    type: ShopActionTypes.SET_CATEGORY,
+    payload: categoryID
+})
