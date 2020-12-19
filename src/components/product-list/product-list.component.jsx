@@ -3,12 +3,48 @@ import { connect } from'react-redux';
 
 import { ProductsListing, ProductItem, AddToCartBtn} from './product-list.styles';
 
-import { AddCartItem } from '../../redux/cart/cart.actions';
+import { AddCartItem, UpdateCart , IncrementItem, DecrementItem} from '../../redux/cart/cart.actions';
 
-const ProductList = ({ productList, categoryID, addCartItem}) => {
+const ProductList = ({ 
+    productList, 
+    categoryID, 
+    addCartItem, 
+    cartItems, 
+    updateCart,
+    incrementCart,
+    decrementCart 
+}) => {
     
     const filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
     
+    const handleAddToCart = (product) => {
+
+        let productInCart = false;
+        
+        if(cartItems.length === 0) {
+            product.total = 1;
+            addCartItem(product);
+        }else{
+
+            //Verify if you already bought this
+            cartItems.forEach(item => {
+                if(product.name === item.name){
+                    item.total +=1;
+                    productInCart = true;
+                }
+            });
+
+            if(productInCart) {
+                updateCart(cartItems);
+                incrementCart();
+            }else{
+                product.total = 1;
+                addCartItem(product);
+            }
+
+        }  
+    }
+
     const renderHelper = products => {
 
         if(products.length > 0) {
@@ -18,7 +54,7 @@ const ProductList = ({ productList, categoryID, addCartItem}) => {
                         <ProductItem key={product.id}>
                             {product.name}
                              - {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                            <AddToCartBtn onClick={() => addCartItem(product) }>Adicionar ao Carrinho</AddToCartBtn>
+                            <AddToCartBtn onClick={() => handleAddToCart(product) }>Adicionar ao Carrinho</AddToCartBtn>
                         </ProductItem>
                     ))}
                 </ProductsListing>
@@ -37,12 +73,16 @@ const ProductList = ({ productList, categoryID, addCartItem}) => {
 }
 
 const mapStateToProps = state => ({
-    productList : state.shop.products,
-    categoryID    : state.shop.selectedCategory
+    productList   : state.shop.products,
+    categoryID    : state.shop.selectedCategory,
+    cartItems     : state.cart.cartItems
 })
 
 const mapDispatchToProps = dispatch => ({
-    addCartItem : item => dispatch(AddCartItem(item))
+    addCartItem : item => dispatch(AddCartItem(item)),
+    updateCart  : items => dispatch(UpdateCart(items)),
+    incrementCart   : () => dispatch(IncrementItem()),
+    decrementCart   : () => dispatch(DecrementItem())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

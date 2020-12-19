@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 
 import './cart-icon.styles.scss';
  
-const CartIcon = ({carItems}) => {
-
-    const totalItems = carItems.length
+const CartIcon = ({totalItems}) => {
 
     return(
         <div className="cart-icon-box">
@@ -17,7 +15,7 @@ const CartIcon = ({carItems}) => {
 }
 
 const mapStateToProps = state => ({
-    carItems : state.cart.cartItems
+    totalItems : state.cart.totalItems
 })
 
 export default connect(mapStateToProps)(CartIcon);
