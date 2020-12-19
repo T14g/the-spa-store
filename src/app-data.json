@@ -1,0 +1,108 @@
+{
+    "products" : [
+        {
+            "id" : 0,
+            "name" : "Coca-Cola lata",
+            "description" : "Coca-cola lata 350ml",
+            "price" : 3.50,
+            "image" : "/image/coca-lata350.jpg",
+            "category_id" : 0
+        },
+        {
+            "id" : 1,
+            "name" : "Pepsi lata",
+            "description" : "Pepsi lata 350ml",
+            "price" : 4.50,
+            "image" : "/image/pepsi-lata350.jpg",
+            "category_id" : 0
+            
+        },
+        {
+            "id" : 2,
+            "name" : "Polar latão",
+            "description" : "Polar latão 350ml",
+            "price" : 4.90,
+            "image" : "/image/polar-latao.jpg",
+            "category_id" : 0
+            
+        },
+        {
+            "id" : 3,
+            "name" : "Fanta lata",
+            "description" : "Fanta lata 350ml",
+            "price" : 1.50,
+            "image" : "/image/fanta-lata.jpg",
+            "category_id" : 0
+        },
+        {
+            "id" : 4,
+            "name" : "Água minera",
+            "description" : "Água 350ml",
+            "price" : 3.50,
+            "image" : "/image/agua.jpg",
+            "category_id" : 0
+        },
+        {
+            "id" : 5,
+            "name" : "Pastel de frango",
+            "description" : "Pastel de frango",
+            "price" : 7.00,
+            "image" : "/image/pastel.jpg",
+            "category_id" : 1
+        },
+        {
+            "id" : 6,
+            "name" : "Empada",
+            "description" : "Empada",
+            "price" : 1.50,
+            "image" : "/image/empada.jpg",
+            "category_id" : 1
+        },
+        {
+            "id" : 7,
+            "name" : "Coxinha",
+            "description" : "Coxinha",
+            "price" : 2.50,
+            "image" : "/image/coxinha.jpg",
+            "category_id" : 1
+        },
+        {
+            "id" : 8,
+            "name" : "Bolo de chocolate",
+            "description" : "Bolo de chocolate",
+            "price" : 9.50,
+            "image" : "/image/bolo-chocolate.jpg",
+            "category_id" : 2
+        },
+        {
+            "id" : 9,
+            "name" : "Bolo de morango",
+            "description" : "Bolo de morango",
+            "price" : 13.10,
+            "image" : "/image/bolo-morango.jpg",
+            "category_id" : 2
+        },
+        {
+            "id" : 10,
+            "name" : "Sorvete",
+            "description" : "Sorvete",
+            "price" : 3.30,
+            "image" : "/image/sorvete.jpg",
+            "category_id" : 2
+        }
+    ],
+    "categories" : [
+        {
+            "id" : 0,
+            "name" : "Bebidas"
+        },
+        {
+            "id" : 1,
+            "name" : "Salgados"
+        },
+        {
+            "id" : 2,
+            "name" : "Doces"
+        }
+    ]
+}
