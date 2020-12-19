@@ -3,7 +3,9 @@ import { connect } from'react-redux';
 
 import { ProductsListing, ProductItem, AddToCartBtn} from './product-list.styles';
 
-const ProductList = ({ productList, categoryID}) => {
+import { AddCartItem } from '../../redux/cart/cart.actions';
+
+const ProductList = ({ productList, categoryID, addCartItem}) => {
     
     const filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
     
@@ -16,7 +18,7 @@ const ProductList = ({ productList, categoryID}) => {
                         <ProductItem key={product.id}>
                             {product.name}
                              - {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                            <AddToCartBtn>Adicionar ao Carrinho</AddToCartBtn>
+                            <AddToCartBtn onClick={() => addCartItem(product) }>Adicionar ao Carrinho</AddToCartBtn>
                         </ProductItem>
                     ))}
                 </ProductsListing>
@@ -39,4 +41,8 @@ const mapStateToProps = state => ({
     categoryID    : state.shop.selectedCategory
 })
 
-export default connect(mapStateToProps)(ProductList);
+const mapDispatchToProps = dispatch => ({
+    addCartItem : item => dispatch(AddCartItem(item))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

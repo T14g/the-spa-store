@@ -1,0 +1,27 @@
+.cart-icon-box{
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    cursor: pointer;
+
+    .cart-icon{
+        width: 40px;
+        height: 40px;
+        fill: #fff;
+    }
+    
+    .total-items{
+        height: 25px;
+        width: 25px;
+        border-radius: 25px;
+        display: block;
+        background: #fff;
+        position: relative;
+        top: -50px;
+        right: -5px;
+        color: #000;
+        border: 1px #000 solid;
+        font-size: 12px;
+        line-height: 25px;
+    }
+}
