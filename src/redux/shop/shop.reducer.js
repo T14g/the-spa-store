@@ -3,7 +3,8 @@ import ShopActionTypes from './shop.types.js';
 const INITIAL_STATE = {
     categories : [],
     products : [],
-    selectedCategory: null
+    selectedCategory: null,
+    showingCart : false
 }
 
 const ShopReducer = ( state = INITIAL_STATE , action ) => {
@@ -26,6 +27,18 @@ const ShopReducer = ( state = INITIAL_STATE , action ) => {
                 selectedCategory : action.payload
             }
         
+        case ShopActionTypes.SHOW_CART:
+            return {
+                ...state,
+                showingCart : true
+            }
+
+        case ShopActionTypes.HIDE_CART:
+            return {
+                ...state,
+                showingCart : false
+            }
+
         default:
             return state;
     }

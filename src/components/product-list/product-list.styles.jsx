@@ -16,12 +16,32 @@ export const ProductItem = styled.li`
     &:not(:last-child){
         border-bottom: 2px #000 solid;
     }
+
+    &::after{
+        display: table;
+        content: "";
+        clear: both;
+    }
+`
+
+export const ProductImage = styled.img`
+    width: 50px;
+    height: 50px;
+    float: left;
+`
+
+export const ProductDescription = styled.p`
+    margin:0;
+    float: left;
+    margin-top: 16px;
+    font-weight: 700;
+    margin-left: 15px;
 `
 
 export const AddToCartBtn = styled.button`
     padding: 10px 10px;
     position: absolute;
-    top: 10px;
+    top: 27px;
     right: 15px;
     cursor: pointer;
     border: 2px #000 solid;

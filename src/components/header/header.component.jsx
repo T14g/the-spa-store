@@ -1,19 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import CartIcon from '../cart-icon/cart-icon.component';
+import BackIcon from '../back-icon/back-icon.component';
 
 import {HeaderContainer, LogoContainer } from './header.styles';
 
 
-const Header = () => (
+const Header = ({showingCart}) => (
     <HeaderContainer>
-        <LogoContainer>
-            Logo
-        </LogoContainer>
+        
+        <BackIcon show={showingCart}/>
 
-        <CartIcon />
+        <LogoContainer>Logo</LogoContainer>
+        
+        <CartIcon/>
     </HeaderContainer>
 );
 
-export default Header;
+const mapStateToProps = state => ({
+    showingCart : state.shop.showingCart  
+})
+
+export default connect(mapStateToProps)(Header);
 

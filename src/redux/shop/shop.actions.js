@@ -14,3 +14,11 @@ export const SetCategory = categoryID => ({
     type: ShopActionTypes.SET_CATEGORY,
     payload: categoryID
 })
+
+export const ShowCart = () => ({
+    type: ShopActionTypes.SHOW_CART
+})
+
+export const HideCart = () => ({
+    type: ShopActionTypes.HIDE_CART
+})

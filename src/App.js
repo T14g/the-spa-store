@@ -4,28 +4,37 @@ import './App.css';
 import Header from './components/header/header.component';
 import Categories from './components/categories/categories.component';
 import ProductList from './components/product-list/product-list.component';
+import CartProducts from './components/cart-products/cart-products.component';
 
 import { LoadCategories, LoadProducts} from './redux/shop/shop.actions';
 
 import shopData from './app-data.json';
 
-const  App = ({loadCategories, loadProducts}) => {
+const  App = ({loadCategories, loadProducts, showingCart}) => {
 
+  //Load data from json into Redux store
   loadCategories(shopData.categories);
   loadProducts(shopData.products);
 
+  const renderHelper = () => showingCart ? <CartProducts/> : <><Categories/><ProductList/></>;
+  
   return (
     <div className="App">
-      <Header />
-      <Categories />
-      <ProductList />
+
+      <Header/>
+      {renderHelper()}
+
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  showingCart : state.shop.showingCart  
+})
 
 const mapDispatchToProps = dispatch => ({
   loadCategories : (categories) => dispatch(LoadCategories(categories)),
   loadProducts : (products) => dispatch(LoadProducts(products)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

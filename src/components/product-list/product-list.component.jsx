@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect } from'react-redux';
 
-import { ProductsListing, ProductItem, AddToCartBtn} from './product-list.styles';
+import { 
+    ProductsListing, 
+    ProductItem, 
+    AddToCartBtn, 
+    ProductImage, 
+    ProductDescription } 
+    from './product-list.styles';
 
 import { AddCartItem, UpdateCart , IncrementItem, DecrementItem} from '../../redux/cart/cart.actions';
 
@@ -24,6 +30,7 @@ const ProductList = ({
         if(cartItems.length === 0) {
             product.total = 1;
             addCartItem(product);
+            incrementCart();
         }else{
 
             //Verify if you already bought this
@@ -40,6 +47,7 @@ const ProductList = ({
             }else{
                 product.total = 1;
                 addCartItem(product);
+                incrementCart();
             }
 
         }  
@@ -52,8 +60,13 @@ const ProductList = ({
                 <ProductsListing>
                     {products.map(product => (
                         <ProductItem key={product.id}>
-                            {product.name}
-                             - {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            <ProductImage src={process.env.PUBLIC_URL + product.image} />
+
+                            <ProductDescription>
+                                {product.name} -
+                                {product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            </ProductDescription>
+                           
                             <AddToCartBtn onClick={() => handleAddToCart(product) }>Adicionar ao Carrinho</AddToCartBtn>
                         </ProductItem>
                     ))}

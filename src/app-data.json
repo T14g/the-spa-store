@@ -5,7 +5,7 @@
             "name" : "Coca-Cola lata",
             "description" : "Coca-cola lata 350ml",
             "price" : 3.50,
-            "image" : "/image/coca-lata350.jpg",
+            "image" : "/img/coca-lata350.jpg",
             "category_id" : 0
         },
         {
@@ -13,7 +13,7 @@
             "name" : "Pepsi lata",
             "description" : "Pepsi lata 350ml",
             "price" : 4.50,
-            "image" : "/image/pepsi-lata350.jpg",
+            "image" : "/img/pepsi-lata350.jpg",
             "category_id" : 0
             
         },
@@ -22,7 +22,7 @@
             "name" : "Polar latão",
             "description" : "Polar latão 350ml",
             "price" : 4.90,
-            "image" : "/image/polar-latao.jpg",
+            "image" : "/img/polar-latao.jpg",
             "category_id" : 0
             
         },
@@ -31,7 +31,7 @@
             "name" : "Fanta lata",
             "description" : "Fanta lata 350ml",
             "price" : 1.50,
-            "image" : "/image/fanta-lata.jpg",
+            "image" : "/img/fanta-lata.jpg",
             "category_id" : 0
         },
         {
@@ -39,7 +39,7 @@
             "name" : "Água minera",
             "description" : "Água 350ml",
             "price" : 3.50,
-            "image" : "/image/agua.jpg",
+            "image" : "/img/agua.jpg",
             "category_id" : 0
         },
         {
@@ -47,7 +47,7 @@
             "name" : "Pastel de frango",
             "description" : "Pastel de frango",
             "price" : 7.00,
-            "image" : "/image/pastel.jpg",
+            "image" : "/img/pastel.jpg",
             "category_id" : 1
         },
         {
@@ -55,7 +55,7 @@
             "name" : "Empada",
             "description" : "Empada",
             "price" : 1.50,
-            "image" : "/image/empada.jpg",
+            "image" : "/img/empada.jpg",
             "category_id" : 1
         },
         {
@@ -63,7 +63,7 @@
             "name" : "Coxinha",
             "description" : "Coxinha",
             "price" : 2.50,
-            "image" : "/image/coxinha.jpg",
+            "image" : "/img/coxinha.jpg",
             "category_id" : 1
         },
         {
@@ -71,7 +71,7 @@
             "name" : "Bolo de chocolate",
             "description" : "Bolo de chocolate",
             "price" : 9.50,
-            "image" : "/image/bolo-chocolate.jpg",
+            "image" : "/img/bolo-chocolate.jpg",
             "category_id" : 2
         },
         {
@@ -79,7 +79,7 @@
             "name" : "Bolo de morango",
             "description" : "Bolo de morango",
             "price" : 13.10,
-            "image" : "/image/bolo-morango.jpg",
+            "image" : "/img/bolo-morango.jpg",
             "category_id" : 2
         },
         {
@@ -87,7 +87,7 @@
             "name" : "Sorvete",
             "description" : "Sorvete",
             "price" : 3.30,
-            "image" : "/image/sorvete.jpg",
+            "image" : "/img/sorvete.jpg",
             "category_id" : 2
         }
     ],
