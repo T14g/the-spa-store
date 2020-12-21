@@ -22,3 +22,11 @@ export const ShowCart = () => ({
 export const HideCart = () => ({
     type: ShopActionTypes.HIDE_CART
 })
+
+export const ShowModal = () => ({
+    type: ShopActionTypes.SHOW_MODAL
+})
+
+export const HideModal = () => ({
+    type: ShopActionTypes.HIDE_MODAL
+})

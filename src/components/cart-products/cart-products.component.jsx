@@ -2,12 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SVG from '../svg/svg.component';
+import Modal from '../modal/modal.component';
+import { UpdateCart, IncrementItem, DecrementItem, ClearCart } from '../../redux/cart/cart.actions';
+import { ShowModal } from '../../redux/shop/shop.actions';
 
-import { UpdateCart, IncrementItem, DecrementItem } from '../../redux/cart/cart.actions';
+import { List, Item, Info, FinishBtn, Container } from './cart-products.styles';
 
-import { List, Item, Info } from './cart-products.styles';
-
-const CartProducts = ({cartItems, incrementItem, decrementItem, updateCart}) => {
+const CartProducts = ({
+    cartItems, 
+    incrementItem, 
+    decrementItem, 
+    updateCart, 
+    showingModal, 
+    showModal,
+    clearCart
+    }) => {
 
 
     //Remove uma unidade e atualiza o carrinho
@@ -53,16 +62,36 @@ const CartProducts = ({cartItems, incrementItem, decrementItem, updateCart}) => 
         }
         
     }
+    
+    //Retorna o valor total das compras formatado em Reais R$
+    const totalValue = () => {
+        let total = 0;
 
+        cartItems.forEach(item => {
+            let temp = item.total * item.price;
+            total += temp;
+        })
+
+        return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    //Limpa o carrinho ao finalizar a compra
+    const finishHelper = () => {
+        clearCart();
+        showModal();
+    }
+
+    
+    //Renderiza a lista de items no carrinho caso ela exista
     const renderHelper = () => {
         if(cartItems.length === 0 ){
-
             return(
                 <h2>Nenhum produto no carrinho</h2>
             )
         }else{
 
             return (
+                <Container>
                 <List>
                     {
                         cartItems.map(item=>(
@@ -76,25 +105,37 @@ const CartProducts = ({cartItems, incrementItem, decrementItem, updateCart}) => 
                             </Item>
                         ))
                     }
+                    <Item>Total = {totalValue()}</Item>
                 </List>   
+                
+                <FinishBtn onClick={() => finishHelper()}>Finalizar Compra</FinishBtn>
+                
+                </Container>
             )
         }
     }
 
     return(
-        renderHelper()
+        <>
+            {renderHelper()}
+            <Modal show={showingModal} title="Compra realizada com sucesso!"/>
+        </>
+       
     );
 }
 
 const mapStateToProps = state => ({
     cartItems : state.cart.cartItems,
-    totalItems : state.cart.totalItems
+    totalItems : state.cart.totalItems,
+    showingModal : state.shop.showModal
 })
 
 const mapDispatchToProps = dispatch => ({
     incrementItem : () => dispatch(IncrementItem()),
     decrementItem : () => dispatch(DecrementItem()),
-    updateCart    : (items) => dispatch(UpdateCart(items))
+    updateCart    : (items) => dispatch(UpdateCart(items)),
+    showModal     : () => dispatch(ShowModal()),
+    clearCart     : () => dispatch(ClearCart())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartProducts);

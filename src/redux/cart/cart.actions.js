@@ -17,3 +17,7 @@ export const IncrementItem = () => ({
 export const DecrementItem = () => ({
     type: CartActionTypes.DECREMENT_ITEM
 })
+
+export const ClearCart = () => ({
+    type: CartActionTypes.CLEAR_CART
+})

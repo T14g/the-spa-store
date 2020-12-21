@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+    max-width: 500px;
+    margin: 0 auto;
+
+    &::after{
+        display: table;
+        content: "";
+        clear: both;
+    }
+` 
+
 export const List = styled.ul`
     max-width: 500px;
     margin: 20px auto 0;
@@ -36,4 +47,24 @@ export const Info = styled.p`
     margin-top: 16px;
     font-weight: 700;
     margin-left: 15px;
+`
+
+export const FinishBtn = styled.button`
+    background: #4B8B3B;
+    color: #fff;
+    font-size: 25px;
+    border: #000;
+    padding: 10px 25px;
+    cursor: pointer;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+    &:hover{
+        opacity: 0.8;
+    }
+
+    &:focus{
+        outline: none;
+    }
 `

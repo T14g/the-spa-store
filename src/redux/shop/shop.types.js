@@ -3,7 +3,9 @@ const ShopActionTypes = {
     LOAD_CATEGORIES : 'LOAD_CATEGORIES',
     SET_CATEGORY : 'SET_CATEGORY',
     SHOW_CART : 'SHOW_CART',
-    HIDE_CART : 'HIDE_CART'
+    HIDE_CART : 'HIDE_CART',
+    SHOW_MODAL : 'SHOW_MODAL',
+    HIDE_MODAL : 'HIDE_MODAL'
 }
 
 export default ShopActionTypes; 
