@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const List = styled.ul`
     max-width: 500px;
-    margin: 50px auto 0;
+    margin: 20px auto 0;
     border: 2px #000 solid;
     list-style: none;
     padding-left: 0;
@@ -30,7 +30,7 @@ export const Image = styled.img`
     float: left;
 `
 
-export const Description = styled.p`
+export const Info = styled.p`
     margin:0;
     float: left;
     margin-top: 16px;

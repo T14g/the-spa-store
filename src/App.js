@@ -16,7 +16,21 @@ const  App = ({loadCategories, loadProducts, showingCart}) => {
   loadCategories(shopData.categories);
   loadProducts(shopData.products);
 
-  const renderHelper = () => showingCart ? <CartProducts/> : <><Categories/><ProductList/></>;
+  const renderHelper = () =>{
+
+    if(showingCart) {
+      return (
+        <>
+          <h2>Finalizar pedido</h2>
+          <p>Confira se seus pedidos estão corretos</p>
+          <CartProducts />
+        </>
+      )
+    }else{
+      return <><Categories/><ProductList/></>
+    }
+
+  }
   
   return (
     <div className="App">
