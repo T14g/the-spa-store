@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     products : [],
     selectedCategory: null,
     showingCart : false,
-    showModal : false
+    showModal : false,
+    modalType : null
 }
 
 const ShopReducer = ( state = INITIAL_STATE , action ) => {
@@ -43,7 +44,8 @@ const ShopReducer = ( state = INITIAL_STATE , action ) => {
         case ShopActionTypes.SHOW_MODAL:
             return {
                 ...state,
-                showModal : true
+                showModal : true,
+                modalType: action.payload
             }
 
         case ShopActionTypes.HIDE_MODAL:

@@ -15,13 +15,13 @@ const CartProducts = ({
     updateCart, 
     showingModal, 
     showModal,
-    clearCart
+    clearCart,
+    totalItems
     }) => {
-
 
     //Remove uma unidade e atualiza o carrinho
     const removeOne = (itemName) => {
-        let flag = false;;
+        let flag = false;
 
         //Remove uma unidade do item
         cartItems.forEach(item => {
@@ -31,11 +31,17 @@ const CartProducts = ({
             }
         })
 
-        //Verifica se algum item zerou
+        //Remove produtos com total 0 unidades
         let newArray = cartItems.filter(item => item.total > 0);
 
         //Valida se houve mudanças
         if(flag) {
+            
+            //Há apenas 1 e será removido, mostrar modal
+            if( totalItems === 1) {
+                showModal('emptyModal');
+            }
+
             decrementItem();
             updateCart(newArray);
         }
@@ -53,7 +59,6 @@ const CartProducts = ({
                 flag = true;
             }
         })
-        console.log("you must add");
 
         //Valida se houve mudanças
         if(flag) {
@@ -78,7 +83,7 @@ const CartProducts = ({
     //Limpa o carrinho ao finalizar a compra
     const finishHelper = () => {
         clearCart();
-        showModal();
+        showModal('finishModal');
     }
 
     
@@ -86,12 +91,17 @@ const CartProducts = ({
     const renderHelper = () => {
         if(cartItems.length === 0 ){
             return(
+                <>
                 <h2>Nenhum produto no carrinho</h2>
+                <Modal show={showingModal} title="Compra realizada com sucesso!"/>
+                </>
             )
         }else{
 
             return (
                 <Container>
+                <h2>Finalizar pedido</h2>
+                <p>Confira se seus pedidos estão corretos</p>
                 <List>
                     {
                         cartItems.map(item=>(
@@ -109,16 +119,15 @@ const CartProducts = ({
                 </List>   
                 
                 <FinishBtn onClick={() => finishHelper()}>Finalizar Compra</FinishBtn>
-                
+
                 </Container>
             )
         }
     }
 
     return(
-        <>
+        <>  
             {renderHelper()}
-            <Modal show={showingModal} title="Compra realizada com sucesso!"/>
         </>
        
     );
@@ -134,7 +143,7 @@ const mapDispatchToProps = dispatch => ({
     incrementItem : () => dispatch(IncrementItem()),
     decrementItem : () => dispatch(DecrementItem()),
     updateCart    : (items) => dispatch(UpdateCart(items)),
-    showModal     : () => dispatch(ShowModal()),
+    showModal     : (modalType) => dispatch(ShowModal(modalType)),
     clearCart     : () => dispatch(ClearCart())
 })
 

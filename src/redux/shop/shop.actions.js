@@ -23,8 +23,9 @@ export const HideCart = () => ({
     type: ShopActionTypes.HIDE_CART
 })
 
-export const ShowModal = () => ({
-    type: ShopActionTypes.SHOW_MODAL
+export const ShowModal = modalType => ({
+    type: ShopActionTypes.SHOW_MODAL,
+    payload: modalType
 })
 
 export const HideModal = () => ({

@@ -21,8 +21,6 @@ const  App = ({loadCategories, loadProducts, showingCart}) => {
     if(showingCart) {
       return (
         <>
-          <h2>Finalizar pedido</h2>
-          <p>Confira se seus pedidos estão corretos</p>
           <CartProducts />
         </>
       )

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { HideCart, ShowCart } from '../../redux/shop/shop.actions';
+import { HideCart } from '../../redux/shop/shop.actions';
 
 import './back-icon.styles.scss';
 
