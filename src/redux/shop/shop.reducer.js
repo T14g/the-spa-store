@@ -3,12 +3,12 @@ import ShopActionTypes from './shop.types.js';
 const INITIAL_STATE = {
     categories : [],
     products : [],
-    selectedCategory: null,
+    selectedCategory: 'all',
     showingCart : false,
     showModal : false,
     modalType : null,
     page : 1,
-    perPage : 2
+    perPage : 3
 }
 
 const ShopReducer = ( state = INITIAL_STATE , action ) => {

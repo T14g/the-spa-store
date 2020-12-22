@@ -7,7 +7,15 @@ import { Button, Container } from './paginationX.styles';
 
 const PaginationX = ({perPage, productList, categoryID, loadPage, currentPage}) => {
 
-    let filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
+    let filteredProducts
+
+    //Verifica se vai usar todos os produtos ou filtrados
+    if(categoryID === 'all'){
+        filteredProducts = productList;
+    }else{
+        filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
+    }
+     
     const totalPages = Math.ceil(filteredProducts.length/perPage);
 
     //Retorna os botões das páginas

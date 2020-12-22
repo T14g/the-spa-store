@@ -26,10 +26,18 @@ const ProductList = ({
 
     let offset = (page - 1) * perPage;
 
-    let filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
-
+    let filteredProducts;
+    
+    //Todos os produtos ou filtrados
+    if(categoryID === 'all'){
+        filteredProducts = productList;
+    }else{
+        filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
+    }
+     
     let pagedProducs = filteredProducts.slice(offset).slice(0, perPage);
 
+    //Adiciona o item no carrinho e incrementa o total
     const handleAddToCart = (product) => {
 
         let productInCart = false;
@@ -82,12 +90,7 @@ const ProductList = ({
                 <PaginationX />
                 </>
             )
-        }else{
-            return (
-                <p>Selecione uma categoria e em seguida adicione os produtos ao carrinho</p>
-            )
         }
-        
     }
 
     return(
