@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import SVG from '../svg/svg.component';
+
 import { HideModal, HideCart } from '../../redux/shop/shop.actions';
 
 import { ModalBackground, ModalContainer, ModalTitle, Button } from './modal.styles';
@@ -18,9 +20,9 @@ const Modal = ({title, show , hideModal, hideCart, modalType}) => {
         switch(modalType) {
             case 'finishModal':
                 return <>
-                    <ModalTitle>Compra Realizada com sucesso!</ModalTitle>
-                    <Button onClick={ () => hideHelper() }>Ir para o Início</Button>
-                    <Button onClick={ () => hideModal() }>Fechar Modal</Button>
+                    <SVG name="checked"/>
+                    <ModalTitle>Pedido realizado com sucesso!</ModalTitle>
+                    <Button className="margin-0" onClick={ () => hideHelper() }>Fechar</Button>
                 </>
             
             case 'emptyModal':

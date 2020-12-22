@@ -20,11 +20,21 @@ export const ModalContainer = styled.div`
     top: 50%;
     transform: translateY(-50%);
     padding: 50px 25px;
+
+    @media(max-width: 767px) {
+        width: 200px;
+        padding: 25px 25px;
+    }
 ` 
 export const ModalTitle = styled.h2`
-    font:25px;
+    font-size:25px;
     margin-top:0;
     color: #000;
+
+    @media(max-width: 767px) {
+        font-size: 18px;
+    }
+
 `
 
 export const Button = styled.button`
@@ -37,5 +47,16 @@ export const Button = styled.button`
 
     &:first-of-type{
         margin-right: 20px;
+    }
+
+    &.margin-0{
+        margin: 0;
+    }
+
+    @media(max-width : 767px) {
+        font-size: 18px;
+        margin:0 0 10px;
+        display: block;
+        width: 100%;
     }
 `

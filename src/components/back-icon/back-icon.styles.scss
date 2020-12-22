@@ -12,5 +12,12 @@
         height: 40px;
         position: relative;
         top: 12px;
+
+        @media(max-width: 767px) {
+            left: -15px;
+            width: 35px;
+            height: 35px;
+            top: 15px;
+        }
     }
 }

@@ -6,7 +6,21 @@ import Modal from '../modal/modal.component';
 import { UpdateCart, IncrementItem, DecrementItem, ClearCart } from '../../redux/cart/cart.actions';
 import { ShowModal } from '../../redux/shop/shop.actions';
 
-import { List, Item, Info, FinishBtn, Container } from './cart-products.styles';
+import { 
+    List,
+    Item, 
+    Info, 
+    FinishBtn, 
+    Container, 
+    H2custom, 
+    TotalValue, 
+    Quantity , 
+    Price,
+    StoreInfo,
+    StoreInfoInner,    
+    StoreName,
+    TextBlock
+} from './cart-products.styles';
 
 const CartProducts = ({
     cartItems, 
@@ -92,7 +106,7 @@ const CartProducts = ({
         if(cartItems.length === 0 ){
             return(
                 <>
-                <h2>Nenhum produto no carrinho</h2>
+                <H2custom>Nenhum produto no carrinho</H2custom>
                 <Modal show={showingModal} title="Compra realizada com sucesso!"/>
                 </>
             )
@@ -100,22 +114,36 @@ const CartProducts = ({
 
             return (
                 <Container>
-                <h2>Finalizar pedido</h2>
-                <p>Confira se seus pedidos estão corretos</p>
+                <H2custom>Finalizar pedido</H2custom>
+
+                <StoreInfo>
+                    <SVG name="cart_bag" /> 
+                    <StoreInfoInner>
+                        <StoreName>Armazém do seu Zé</StoreName>
+                        <TextBlock>9:10:20 min restantes</TextBlock>
+                    </StoreInfoInner>
+                </StoreInfo>
+
+                <TextBlock>Revise os seus itens</TextBlock>
+
                 <List>
                     {
                         cartItems.map(item=>(
                             <Item key={item.name}>
                                 <SVG name="plus" onClickHandler={() => addOne(item.name)} />
+                                <Quantity>{item.total}</Quantity>
                                 <SVG name="minus" onClickHandler={() => removeOne(item.name)} />
-                                <Info>
-                                    {item.name} - {item.total} x { item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} =  
-                                    {(item.total*item.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                                </Info>
+                                <Info>{item.name}</Info>
+                                <Price>{item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Price>
                             </Item>
                         ))
                     }
-                    <Item>Total = {totalValue()}</Item>
+                    <Item>
+                        <TotalValue>
+                            <Info className="label">Total</Info>
+                            <Price className="price">{totalValue()}</Price>
+                        </TotalValue>
+                    </Item>
                 </List>   
                 
                 <FinishBtn onClick={() => finishHelper()}>Finalizar Compra</FinishBtn>
