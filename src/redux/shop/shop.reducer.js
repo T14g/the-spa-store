@@ -6,7 +6,9 @@ const INITIAL_STATE = {
     selectedCategory: null,
     showingCart : false,
     showModal : false,
-    modalType : null
+    modalType : null,
+    page : 1,
+    perPage : 2
 }
 
 const ShopReducer = ( state = INITIAL_STATE , action ) => {
@@ -52,6 +54,12 @@ const ShopReducer = ( state = INITIAL_STATE , action ) => {
             return {
                 ...state,
                 showModal : false
+            }
+
+        case ShopActionTypes.LOAD_PAGE:
+            return {
+                ...state,
+                page : action.payload
             }
 
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from'react-redux';
 
+import PaginationX from '../paginationX/paginationX.component';
+
 import { 
     ProductsListing, 
     ProductItem, 
@@ -9,7 +11,7 @@ import {
     ProductDescription } 
     from './product-list.styles';
 
-import { AddCartItem, UpdateCart , IncrementItem, DecrementItem} from '../../redux/cart/cart.actions';
+import { AddCartItem, UpdateCart , IncrementItem} from '../../redux/cart/cart.actions';
 
 const ProductList = ({ 
     productList, 
@@ -18,11 +20,16 @@ const ProductList = ({
     cartItems, 
     updateCart,
     incrementCart,
-    decrementCart 
+    perPage,
+    page
 }) => {
-    
-    const filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
-    
+
+    let offset = (page - 1) * perPage;
+
+    let filteredProducts = productList.filter(product => product.category_id === parseInt(categoryID));
+
+    let pagedProducs = filteredProducts.slice(offset).slice(0, perPage);
+
     const handleAddToCart = (product) => {
 
         let productInCart = false;
@@ -57,6 +64,7 @@ const ProductList = ({
 
         if(products.length > 0) {
             return(
+                <>
                 <ProductsListing>
                     {products.map(product => (
                         <ProductItem key={product.id}>
@@ -71,31 +79,34 @@ const ProductList = ({
                         </ProductItem>
                     ))}
                 </ProductsListing>
+                <PaginationX />
+                </>
             )
         }else{
             return (
-                <p>Seleciona uma categoria e em seguida adicione os produtos ao carrinho</p>
+                <p>Selecione uma categoria e em seguida adicione os produtos ao carrinho</p>
             )
         }
         
     }
 
     return(
-        renderHelper(filteredProducts)
+        renderHelper(pagedProducs)
     );
 }
 
 const mapStateToProps = state => ({
     productList   : state.shop.products,
     categoryID    : state.shop.selectedCategory,
+    perPage       : state.shop.perPage,
+    page          : state.shop.page,
     cartItems     : state.cart.cartItems
 })
 
 const mapDispatchToProps = dispatch => ({
     addCartItem : item => dispatch(AddCartItem(item)),
     updateCart  : items => dispatch(UpdateCart(items)),
-    incrementCart   : () => dispatch(IncrementItem()),
-    decrementCart   : () => dispatch(DecrementItem())
+    incrementCart   : () => dispatch(IncrementItem())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

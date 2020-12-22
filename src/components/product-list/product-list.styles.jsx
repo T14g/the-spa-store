@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ProductsListing = styled.ul`
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     border: 2px #000 solid;
     list-style: none;
     padding-left: 0;

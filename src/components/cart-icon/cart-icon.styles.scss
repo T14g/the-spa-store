@@ -6,6 +6,13 @@
     border:none;
     background: none;
     outline: none;
+    height: 40px;
+
+    &:hover{
+        + .cart-item-list{
+            display: block;
+        }
+    }
 
     .cart-icon{
         width: 40px;
@@ -26,5 +33,44 @@
         border: 1px #000 solid;
         font-size: 12px;
         line-height: 25px;
+    }
+}
+
+.cart-item-list{
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 45px;
+    z-index: 100;
+    background: #fff;
+    color: #000;
+    border: 2px #000 solid;
+    padding: 15px 5px;
+    list-style: none;
+    width: 200px;
+    text-align: left;
+    transition: 5s;
+
+    .cart-item{
+        margin-bottom: 8px;
+
+        &::after{
+            display: table;
+            clear: both;
+            content: "";
+        }
+        .item-name{
+            display: block;
+            float: left;
+            font-weight: 500;
+            margin-top: 8px;
+            margin-left: 5px;
+        }
+
+        .item-image{
+            width: 40px;
+            height: 40px;
+            float: left;
+        }
     }
 }

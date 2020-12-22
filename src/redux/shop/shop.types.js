@@ -5,7 +5,8 @@ const ShopActionTypes = {
     SHOW_CART : 'SHOW_CART',
     HIDE_CART : 'HIDE_CART',
     SHOW_MODAL : 'SHOW_MODAL',
-    HIDE_MODAL : 'HIDE_MODAL'
+    HIDE_MODAL : 'HIDE_MODAL',
+    LOAD_PAGE  : 'LOAD_PAGE'
 }
 
 export default ShopActionTypes; 

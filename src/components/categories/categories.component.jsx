@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 
 import { List, ListItem } from './categories.styles';
 
-import { SetCategory } from '../../redux/shop/shop.actions';
+import { SetCategory, LoadPage } from '../../redux/shop/shop.actions';
 
-const Categories = ({categories, setCategory, categorySelected}) => {
+const Categories = ({categories, setCategory, categorySelected, loadPage}) => {
     
 
     const handleSelect = (e) => {
         setCategory(e.target.value);
+        loadPage(1);
     }
     
     return(
@@ -37,7 +38,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch =>({
-    setCategory : id => dispatch(SetCategory(id))
+    setCategory : id => dispatch(SetCategory(id)),
+    loadPage    : (page) => dispatch(LoadPage(page))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

@@ -31,3 +31,8 @@ export const ShowModal = modalType => ({
 export const HideModal = () => ({
     type: ShopActionTypes.HIDE_MODAL
 })
+
+export const LoadPage = page => ({
+    type: ShopActionTypes.LOAD_PAGE,
+    payload: page
+})
