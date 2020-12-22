@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { LoadPage } from '../../redux/shop/shop.actions'
 
-import { Button } from './paginationX.styles';
+import { Button, Container } from './paginationX.styles';
 
 const PaginationX = ({perPage, productList, categoryID, loadPage, currentPage}) => {
 
@@ -15,7 +15,7 @@ const PaginationX = ({perPage, productList, categoryID, loadPage, currentPage}) 
         let pages = [];
         
         for(let i = 1 ; i <= totalPages; i++){
-            let page = <Button className={currentPage === i ? 'active' : '' } onClick={ () => loadPage(i) }>{i}</Button>;
+            let page = <Button key={i} className={currentPage === i ? 'active' : '' } onClick={ () => loadPage(i) }>{i}</Button>;
             pages.push(page);
         }
 
@@ -23,9 +23,9 @@ const PaginationX = ({perPage, productList, categoryID, loadPage, currentPage}) 
     }
 
     return(
-        <div>
+        <Container>
             {numbersGenerator()}
-        </div>
+        </Container>
     );
 }
 

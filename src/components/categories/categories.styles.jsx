@@ -5,7 +5,7 @@ export const List = styled.select`
     margin-top: 30px;
     margin-bottom: 10px;
     width: 100%;
-    max-width: 500px;
+    max-width: 504px;
     border: 2px #000 solid;
 `
 

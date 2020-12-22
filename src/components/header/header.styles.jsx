@@ -16,5 +16,9 @@ export const LogoContainer = styled.a`
     line-height: 70px;
     text-transform: uppercase;
     font-size: 30px;
+
+    @media(max-width: 550px) {
+        font-size: 25px;
+    }
 `;
 

@@ -14,8 +14,8 @@ const CartIcon = ({totalItems, showCart, cartItems}) => {
             return (
                 <ul className="cart-item-list">
                     {cartItems.map(item => (
-                        <li className="cart-item">
-                            <img className="item-image" src={process.env.PUBLIC_URL + item.image}/>
+                        <li key={item.name} className="cart-item">
+                            <img className="item-image" src={process.env.PUBLIC_URL + item.image} alt={item.name}/>
                             <span className="item-name">
                             {item.name}({item.total})
                             </span>

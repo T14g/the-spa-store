@@ -17,6 +17,10 @@ export const ProductItem = styled.li`
         border-bottom: 2px #000 solid;
     }
 
+    @media(max-width: 550px){
+        padding: 15px 10px;
+    }
+
     &::after{
         display: table;
         content: "";
@@ -28,6 +32,11 @@ export const ProductImage = styled.img`
     width: 50px;
     height: 50px;
     float: left;
+
+    @media(max-width: 550px) {
+        width: 40px;
+        height: 40px;
+    }
 `
 
 export const ProductDescription = styled.p`
@@ -36,6 +45,12 @@ export const ProductDescription = styled.p`
     margin-top: 16px;
     font-weight: 700;
     margin-left: 15px;
+
+    @media(max-width: 550px){
+        font-size: 12px;
+        max-width: 95px;
+        margin-top: 0;
+    }
 `
 
 export const AddToCartBtn = styled.button`
@@ -52,5 +67,11 @@ export const AddToCartBtn = styled.button`
     &:hover{
         background: #000;
         color: #fff;
+    }
+
+    @media(max-width: 550px){
+        font-size: 12px;
+        max-width: 95px;
+        top: 10px;
     }
 `

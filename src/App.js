@@ -32,10 +32,10 @@ const  App = ({loadCategories, loadProducts, showingCart}) => {
   
   return (
     <div className="App">
-
       <Header/>
-      {renderHelper()}
-
+      <div className="app-inner-container">
+        {renderHelper()}
+      </div>
     </div>
   );
 }

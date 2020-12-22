@@ -8,6 +8,10 @@
     outline: none;
     height: 40px;
 
+    @media(max-width: 767px) {
+        right: 15px;
+    }
+
     &:hover{
         + .cart-item-list{
             display: block;
@@ -51,8 +55,19 @@
     text-align: left;
     transition: 5s;
 
+    @media(max-width: 550px) {
+        width: 150px;
+        padding: 7px;
+        top: 35px;
+        right: 15px;
+    }
+
     .cart-item{
         margin-bottom: 8px;
+
+        @media(max-width: 550px) {
+            font-size: 12px;
+        }
 
         &::after{
             display: table;
@@ -71,6 +86,11 @@
             width: 40px;
             height: 40px;
             float: left;
+
+            @media(max-width: 550px) {
+                width: 35px;
+                height: 35px
+            }
         }
     }
 }

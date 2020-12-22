@@ -7,6 +7,7 @@ export const Button = styled.button`
     color: #000;
     font-weight: 600;
     cursor: pointer;
+    margin-bottom: 5px;
 
     &:hover, &.active{
         background: #000;
@@ -17,4 +18,9 @@ export const Button = styled.button`
     &:not(:last-child){
         margin-right: 5px;
     }
+`
+
+export const Container = styled.div`
+    max-width: 500px;
+    margin: 0 auto;
 `
