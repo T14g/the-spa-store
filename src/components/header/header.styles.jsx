@@ -12,10 +12,11 @@ export const HeaderContainer = styled.div`
 export const LogoContainer = styled.a`
     max-width: 140px;
     margin: 0 auto;
-    font-weight: 600;
+    font-weight: 800;
     line-height: 70px; 
     text-transform: uppercase;
     font-size: 30px;
+    color: #FFD700;
 
     @media(max-width: 550px) {
         font-size: 25px;

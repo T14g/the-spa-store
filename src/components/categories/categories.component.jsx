@@ -15,7 +15,7 @@ const Categories = ({categories, setCategory, categorySelected, loadPage}) => {
     
     return(
         <List onChange={ (event) => handleSelect(event)} value={categorySelected}>
-            <ListItem defaultValue>Seleciona uma categoria</ListItem>
+            <ListItem defaultValue value="all" >Seleciona uma categoria</ListItem>
             {
                 categories.length > 0 ? (
                     categories.map(category => (

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import './App.css';
 
 import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
 import Categories from './components/categories/categories.component';
 import ProductList from './components/product-list/product-list.component';
 import CartProducts from './components/cart-products/cart-products.component';
@@ -36,6 +37,7 @@ const  App = ({loadCategories, loadProducts, showingCart}) => {
       <div className="app-inner-container">
         {renderHelper()}
       </div>
+      <Footer/>
     </div>
   );
 }
