@@ -120,7 +120,6 @@ const CartProducts = ({
                     <SVG name="cart_bag" /> 
                     <StoreInfoInner>
                         <StoreName>Armazém do seu Zé</StoreName>
-                        <TextBlock>9:10:20 min restantes</TextBlock>
                     </StoreInfoInner>
                 </StoreInfo>
 
