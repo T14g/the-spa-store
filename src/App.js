@@ -37,7 +37,7 @@ const  App = ({loadCategories, loadProducts, showingCart}) => {
       <div className="app-inner-container">
         {renderHelper()}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
